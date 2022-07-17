@@ -1,0 +1,39 @@
+body {
+    background-color: #121212;
+    font-family: 'Courier New', monospace;
+}
+
+#score-board {
+    color: lightgray;
+    font-size: 100px;
+    font-weight: 550;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    border-radius: 10px;
+    height: 80px;
+    width: 250px;
+    margin: 60px;
+    background-color: #121212;
+    font-family: 'Courier New', monospace;
+    color: lightgray;
+    font-size: 30px;
+}
+
+.list {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+#buttons-list {
+    list-style: none;
+    display: flex;
+    background-color: rgb(41, 41, 41);
+    justify-content: space-evenly;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}

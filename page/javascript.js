@@ -1,25 +1,21 @@
-let computerSelection;
-let playerSelection;
-
+//Score calculation and Game Logic
 function getComputerChoice() {
     let computerSelectionMath = Math.floor(Math.random() * 3);
     switch (computerSelectionMath) {
         case 0:
-            computerSelection = "rock";
+            return "rock";
             break;
         case 1:
-            computerSelection = "paper";
+            return "paper";
             break;
         case 2:
-            computerSelection = "scissors";
+            return "scissors";
             break;
     }
 }
 
-function playRound() {
-    playerSelection = prompt("Enter your choice");
-    playerSelection = playerSelection.toLowerCase();
-    getComputerChoice();
+function playRound(playerSelection) {
+    let computerSelection = getComputerChoice();
     if (computerSelection == playerSelection) {
         return "tie";
     }
@@ -41,30 +37,12 @@ function playRound() {
     else return "computer"
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let winner;
-    for (let i = 1; i <= 3; i++) {
-        winner = playRound();
-        console.log("for loop: " + i);
-        if (winner == "tie") {
-            console.log("Tie!");
-        }
-        else if (winner == "computer") {
-            computerScore++;
-            console.log("Lose!");
-        }
-        else if (winner == "player") {
-            playerScore++;
-            console.log("Win!");
-        }
-    }
-    if (computerScore > playerScore) {
-        alert("You lost! The score is: " + playerScore + " - " + computerScore);
-    }
-    else if (computerScore == playerScore) {
-        alert("Tie! The score is: " + playerScore + " - " + computerScore);
-    }
-    else alert("You Won! The score is: " + playerScore + " - " + computerScore);
-}
+
+//Events
+const buttons = Array.from(document.querySelectorAll('.btn'));
+
+buttons.forEach((value) => {
+    value.addEventListener('click', () => {
+        console.log(playRound(value.id));
+    });
+});
