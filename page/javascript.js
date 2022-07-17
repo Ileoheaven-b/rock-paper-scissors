@@ -39,10 +39,40 @@ function playRound(playerSelection) {
 
 
 //Events
+let winner;
+let playerScore = 0;
+let computerScore = 0;
+
 const buttons = Array.from(document.querySelectorAll('.btn'));
+const scoreBoard = document.querySelector("#score-board");
+scoreBoard.textContent = "0 - 0";
+const announcerBoard = document.querySelector("#announcer-board");
+announcerBoard.textContent = "Choose an option";
 
 buttons.forEach((value) => {
     value.addEventListener('click', () => {
-        console.log(playRound(value.id));
+        winner = playRound(value.id);
+        if (computerScore == 5) {
+            computerScore = 0;
+            playerScore = 0;
+            announcerBoard.textContent = "You lost the game!";
+        }
+        else if (playerScore == 5) {
+            computerScore = 0;
+            playerScore = 0;
+            announcerBoard.textContent = "You won the game!";
+        }
+        else if (winner == "computer") {
+            computerScore++;
+            announcerBoard.textContent = "You lost this round!";
+        }
+        else if (winner == "player") {
+            playerScore++;
+            announcerBoard.textContent = "You won this round!";
+        }
+        else if (winner == "tie") {
+            announcerBoard.textContent = "Tie!";
+        }
+        scoreBoard.textContent = `${playerScore} - ${computerScore}`;
     });
 });

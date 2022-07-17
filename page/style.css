@@ -3,12 +3,16 @@ body {
     font-family: 'Courier New', monospace;
 }
 
-#score-board {
+.board {
     color: lightgray;
     font-size: 100px;
     font-weight: 550;
     display: flex;
     justify-content: center;
+}
+
+#announcer-board {
+    margin-top: 20px;
 }
 
 .btn {
